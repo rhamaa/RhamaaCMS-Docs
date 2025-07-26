@@ -1,0 +1,2373 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dokumentasi lengkap untuk RhamaaCMS - Template Wagtail untuk pengembangan cepat">
+      
+      
+      
+        <link rel="canonical" href="https://rhamaacms.readthedocs.io/deployment/divio/">
+      
+      
+        <link rel="prev" href="../flyio/">
+      
+      
+        <link rel="next" href="../other-servers/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Divio Cloud - RhamaaCMS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deploy-ke-divio-cloud" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RhamaaCMS Documentation" class="md-header__button md-logo" aria-label="RhamaaCMS Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RhamaaCMS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Divio Cloud
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Beranda
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Memulai
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guide/project-structure/" class="md-tabs__link">
+          
+  
+  
+  Panduan Penggunaan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../flyio/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/contributing/" class="md-tabs__link">
+          
+  
+  
+  Pengembangan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RhamaaCMS Documentation" class="md-nav__button md-logo" aria-label="RhamaaCMS Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RhamaaCMS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Beranda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Memulai
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Memulai
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instalasi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/initial-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Konfigurasi Awal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/running-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Menjalankan Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Panduan Penggunaan
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Panduan Penggunaan
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/project-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Struktur Proyek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/pages-blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Halaman dan Blok
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/content-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mengelola Konten
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/template-customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kustomisasi Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flyio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fly.io
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Divio Cloud
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Divio Cloud
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#persiapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persiapan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persiapan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-akun-divio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Akun Divio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-repository-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Repository Git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-setup-lokal" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Setup Lokal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-push-ke-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Push ke Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-buat-aplikasi-baru" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Buat Aplikasi Baru
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-konfigurasi-aplikasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Konfigurasi Aplikasi
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konfigurasi-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konfigurasi Database
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konfigurasi Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tambah-database-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Tambah Database Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-update-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Update Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-required-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Set Required Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-generate-secret-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Generate Secret Key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Release Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-automatic-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Automatic Migrations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-collect-static-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Collect Static Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-load-initial-data-opsional" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Load Initial Data (Opsional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#media-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Media Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tambah-object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Tambah Object Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-update-settings-untuk-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Update Settings untuk Media
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-storage-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install Storage Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-deploy-ke-test-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Deploy ke Test Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-test-aplikasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Test Aplikasi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-ke-live-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deploy ke Live Environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Domain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Domain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tambah-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Tambah Domain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ssl-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. SSL Certificate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-backup-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Backup Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-restore-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Restore Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Run Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-application-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Application Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Performance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-connection-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Connection Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-files-not-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Files Not Loading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#media-files-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Files Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vertical-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vertical Scaling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-horizontal-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Horizontal Scaling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-resource-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Resource Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-optimization-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Optimization Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-selanjutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      Langkah Selanjutnya
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-servers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server Lainnya
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pengembangan
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Pengembangan
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kontribusi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/template-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Struktur Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#persiapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persiapan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persiapan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-akun-divio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Akun Divio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-repository-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Repository Git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-setup-lokal" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Setup Lokal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-push-ke-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Push ke Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-buat-aplikasi-baru" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Buat Aplikasi Baru
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-konfigurasi-aplikasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Konfigurasi Aplikasi
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konfigurasi-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konfigurasi Database
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konfigurasi Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tambah-database-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Tambah Database Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-update-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Update Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-required-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Set Required Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-generate-secret-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Generate Secret Key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Release Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-automatic-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Automatic Migrations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-collect-static-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Collect Static Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-load-initial-data-opsional" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Load Initial Data (Opsional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#media-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Media Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tambah-object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Tambah Object Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-update-settings-untuk-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Update Settings untuk Media
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-storage-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install Storage Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-deploy-ke-test-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Deploy ke Test Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-test-aplikasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Test Aplikasi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-ke-live-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Deploy ke Live Environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Domain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Domain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tambah-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Tambah Domain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ssl-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. SSL Certificate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-backup-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Backup Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-restore-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Restore Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Run Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-application-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Application Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Performance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-connection-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Connection Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-files-not-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Files Not Loading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#media-files-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Files Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vertical-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vertical Scaling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-horizontal-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Horizontal Scaling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-resource-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Resource Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-optimization-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Optimization Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-selanjutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      Langkah Selanjutnya
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="deploy-ke-divio-cloud">Deploy ke Divio Cloud</h1>
+<p>Divio Cloud adalah platform cloud yang dioptimalkan untuk aplikasi Django dan menyediakan environment yang mudah untuk deployment RhamaaCMS.</p>
+<h2 id="persiapan">Persiapan</h2>
+<h3 id="1-akun-divio">1. Akun Divio</h3>
+<p>Buat akun di <a href="https://control.divio.com/">Divio Control Panel</a> jika belum memiliki.</p>
+<h3 id="2-repository-git">2. Repository Git</h3>
+<p>Pastikan proyek RhamaaCMS Anda sudah di-push ke Git repository (GitHub, GitLab, atau Bitbucket).</p>
+<h2 id="quick-deploy">Quick Deploy</h2>
+<p>Untuk deployment cepat, gunakan tombol deploy:</p>
+<p><a href="https://control.divio.com/app/new/?template_url=https://github.com/rhamaa/RhamaaCMS/archive/refs/heads/main.zip"><img alt="Deploy to Divio" src="https://docs.divio.com/deploy-to-divio.svg" /></a></p>
+<h2 id="manual-deployment">Manual Deployment</h2>
+<h3 id="1-setup-lokal">1. Setup Lokal</h3>
+<p>Ikuti <a href="../../getting-started/installation/">panduan instalasi</a> untuk setup proyek lokal terlebih dahulu.</p>
+<h3 id="2-push-ke-repository">2. Push ke Repository</h3>
+<p>Upload proyek ke Git provider pilihan Anda:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>init
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/username/your-repo.git
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+<h3 id="3-buat-aplikasi-baru">3. Buat Aplikasi Baru</h3>
+<ol>
+<li>Login ke <a href="https://control.divio.com/">Divio Control Panel</a></li>
+<li>Klik "Create new application"</li>
+<li>Pilih "I already have a repository"</li>
+<li>Connect Git provider Anda</li>
+<li>Pilih repository RhamaaCMS</li>
+<li>Klik "Next"</li>
+</ol>
+<h3 id="4-konfigurasi-aplikasi">4. Konfigurasi Aplikasi</h3>
+<ol>
+<li>Berikan nama aplikasi yang sesuai</li>
+<li>Pilih plan "Free Trial" untuk testing</li>
+<li>Klik "Create application"</li>
+</ol>
+<p>Divio akan membuat dua environment:
+- <strong>Test</strong> - untuk testing dan development
+- <strong>Live</strong> - untuk production</p>
+<h2 id="konfigurasi-database">Konfigurasi Database</h2>
+<h3 id="1-tambah-database-service">1. Tambah Database Service</h3>
+<ol>
+<li>Buka aplikasi di Divio Control Panel</li>
+<li>Pergi ke tab "Services"</li>
+<li>Klik "Add service"</li>
+<li>Pilih "PostgreSQL" atau "MySQL"</li>
+<li>Konfigurasi sesuai kebutuhan</li>
+</ol>
+<h3 id="2-update-settings">2. Update Settings</h3>
+<p>Buat file <code>settings/divio.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Database configuration</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django.db.backends.postgresql&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DATABASE_NAME&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="s1">&#39;USER&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DATABASE_USER&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="s1">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DATABASE_PASSWORD&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="s1">&#39;HOST&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DATABASE_HOST&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="s1">&#39;PORT&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DATABASE_PORT&#39;</span><span class="p">,</span> <span class="s1">&#39;5432&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># Static files</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;staticfiles&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="c1"># Media files</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">&#39;/media/&#39;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="c1"># Security settings</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="s1">&#39;.divio-media.net&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    <span class="s1">&#39;.divio-media.org&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="s1">&#39;.divio.app&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DOMAIN_ALIASES&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">]</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="c1"># Remove empty strings</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="n">host</span> <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">ALLOWED_HOSTS</span> <span class="k">if</span> <span class="n">host</span><span class="p">]</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="c1"># CSRF settings</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="n">CSRF_TRUSTED_ORIGINS</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>    <span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="n">host</span> <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">ALLOWED_HOSTS</span> <span class="k">if</span> <span class="n">host</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="p">]</span>
+</code></pre></div>
+<h2 id="environment-variables">Environment Variables</h2>
+<h3 id="1-set-required-variables">1. Set Required Variables</h3>
+<p>Di Divio Control Panel, pergi ke "Env Variables" dan tambahkan:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SECRET_KEY=your-secret-key-here
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>DJANGO_SETTINGS_MODULE=myproject.settings.divio
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>DEBUG=False
+</code></pre></div>
+<h3 id="2-generate-secret-key">2. Generate Secret Key</h3>
+<p>Gunakan <a href="https://realorangeone.github.io/django-secret-key-generator/">Django Secret Key Generator</a> untuk generate secret key yang aman.</p>
+<h2 id="release-commands">Release Commands</h2>
+<h3 id="1-automatic-migrations">1. Automatic Migrations</h3>
+<p>Di "Settings" aplikasi, tambahkan "Release command":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</code></pre></div>
+<h3 id="2-collect-static-files">2. Collect Static Files</h3>
+<p>Tambahkan command tambahan:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic<span class="w"> </span>--noinput
+</code></pre></div>
+<h3 id="3-load-initial-data-opsional">3. Load Initial Data (Opsional)</h3>
+<p>Untuk load data dummy:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>manage.py<span class="w"> </span>loaddata<span class="w"> </span>fixtures/initial_data.json
+</code></pre></div>
+<h2 id="media-storage">Media Storage</h2>
+<h3 id="1-tambah-object-storage">1. Tambah Object Storage</h3>
+<ol>
+<li>Pergi ke tab "Services"</li>
+<li>Klik "Add service"</li>
+<li>Pilih "Object Storage"</li>
+<li>Konfigurasi bucket name dan region</li>
+</ol>
+<h3 id="2-update-settings-untuk-media">2. Update Settings untuk Media</h3>
+<p>Update <code>settings/divio.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Media storage settings</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">if</span> <span class="s1">&#39;DEFAULT_STORAGE_DSN&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;storages.backends.s3boto3.S3Boto3Storage&#39;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="c1"># Parse storage DSN</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">dj_database_url</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">storage_config</span> <span class="o">=</span> <span class="n">dj_database_url</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DEFAULT_STORAGE_DSN&#39;</span><span class="p">])</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="n">storage_config</span><span class="p">[</span><span class="s1">&#39;USER&#39;</span><span class="p">]</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="n">storage_config</span><span class="p">[</span><span class="s1">&#39;PASSWORD&#39;</span><span class="p">]</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="n">storage_config</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">AWS_S3_ENDPOINT_URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">storage_config</span><span class="p">[</span><span class="s1">&#39;HOST&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">AWS_S3_CUSTOM_DOMAIN</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">storage_config</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">storage_config</span><span class="p">[</span><span class="s1">&#39;HOST&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="n">AWS_DEFAULT_ACL</span> <span class="o">=</span> <span class="s1">&#39;public-read&#39;</span>
+</code></pre></div>
+<h3 id="3-install-storage-dependencies">3. Install Storage Dependencies</h3>
+<p>Tambahkan ke <code>requirements.txt</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>django-storages[boto3]&gt;=1.13
+</code></pre></div>
+<h2 id="deployment">Deployment</h2>
+<h3 id="1-deploy-ke-test-environment">1. Deploy ke Test Environment</h3>
+<ol>
+<li>Pergi ke tab "Environments"</li>
+<li>Klik "Deploy" pada Test environment</li>
+<li>Tunggu proses deployment selesai</li>
+<li>Akses aplikasi menggunakan "Env URL"</li>
+</ol>
+<h3 id="2-test-aplikasi">2. Test Aplikasi</h3>
+<ol>
+<li>Buka URL test environment</li>
+<li>Verifikasi semua fungsi bekerja dengan baik</li>
+<li>Test admin panel di <code>/admin</code></li>
+<li>Upload beberapa media files untuk test storage</li>
+</ol>
+<h3 id="3-deploy-ke-live-environment">3. Deploy ke Live Environment</h3>
+<p>Setelah testing berhasil:</p>
+<ol>
+<li>Klik "Deploy" pada Live environment</li>
+<li>Tunggu deployment selesai</li>
+<li>Akses aplikasi production</li>
+</ol>
+<h2 id="custom-domain">Custom Domain</h2>
+<h3 id="1-tambah-domain">1. Tambah Domain</h3>
+<ol>
+<li>Pergi ke "Settings" aplikasi</li>
+<li>Tambahkan domain di "Domains" section</li>
+<li>Konfigurasi DNS record:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>CNAME yourdomain.com your-app.divio.app
+</code></pre></div>
+<h3 id="2-ssl-certificate">2. SSL Certificate</h3>
+<p>Divio otomatis menyediakan SSL certificate untuk custom domain.</p>
+<h2 id="database-management">Database Management</h2>
+<h3 id="1-backup-database">1. Backup Database</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Via Divio CLI</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>divio<span class="w"> </span>app<span class="w"> </span>backup<span class="w"> </span>create
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Manual backup</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>divio<span class="w"> </span>app<span class="w"> </span>shell
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>pg_dump<span class="w"> </span><span class="nv">$DATABASE_URL</span><span class="w"> </span>&gt;<span class="w"> </span>backup.sql
+</code></pre></div>
+<h3 id="2-restore-database">2. Restore Database</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>divio<span class="w"> </span>app<span class="w"> </span>shell
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>psql<span class="w"> </span><span class="nv">$DATABASE_URL</span><span class="w"> </span>&lt;<span class="w"> </span>backup.sql
+</code></pre></div>
+<h3 id="3-run-commands">3. Run Commands</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Access shell</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>divio<span class="w"> </span>app<span class="w"> </span>shell
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Run Django commands</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic
+</code></pre></div>
+<h2 id="monitoring">Monitoring</h2>
+<h3 id="1-application-logs">1. Application Logs</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Via Divio CLI</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>divio<span class="w"> </span>app<span class="w"> </span>logs
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Via Control Panel</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># Pergi ke &quot;Logs&quot; tab</span>
+</code></pre></div>
+<h3 id="2-performance-monitoring">2. Performance Monitoring</h3>
+<p>Divio menyediakan basic monitoring di Control Panel:
+- CPU usage
+- Memory usage
+- Request metrics
+- Error rates</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="build-errors">Build Errors</h3>
+<p><strong>Check build logs:</strong>
+1. Pergi ke "Environments" tab
+2. Klik pada deployment yang gagal
+3. Review build logs</p>
+<p><strong>Common issues:</strong>
+- Missing dependencies in <code>requirements.txt</code>
+- Python version compatibility
+- Static files configuration</p>
+<h3 id="database-connection-errors">Database Connection Errors</h3>
+<p><strong>Check environment variables:</strong>
+1. Verify database service is running
+2. Check database credentials in env variables
+3. Test connection in shell</p>
+<h3 id="static-files-not-loading">Static Files Not Loading</h3>
+<p><strong>Solutions:</strong>
+1. Run <code>collectstatic</code> command
+2. Check <code>STATIC_URL</code> and <code>STATIC_ROOT</code> settings
+3. Verify web server configuration</p>
+<h3 id="media-files-issues">Media Files Issues</h3>
+<p><strong>Check object storage:</strong>
+1. Verify storage service is configured
+2. Check storage credentials
+3. Test file upload in admin</p>
+<h2 id="scaling">Scaling</h2>
+<h3 id="1-vertical-scaling">1. Vertical Scaling</h3>
+<p>Upgrade plan untuk lebih banyak resources:
+- CPU cores
+- Memory
+- Storage</p>
+<h3 id="2-horizontal-scaling">2. Horizontal Scaling</h3>
+<p>Untuk high-traffic applications:
+- Load balancer
+- Multiple instances
+- Database read replicas</p>
+<h2 id="cost-optimization">Cost Optimization</h2>
+<h3 id="1-resource-monitoring">1. Resource Monitoring</h3>
+<p>Monitor usage di Control Panel:
+- CPU utilization
+- Memory usage
+- Storage consumption
+- Bandwidth usage</p>
+<h3 id="2-optimization-tips">2. Optimization Tips</h3>
+<ul>
+<li>Optimize database queries</li>
+<li>Use caching (Redis/Memcached)</li>
+<li>Compress static files</li>
+<li>Optimize images</li>
+</ul>
+<h2 id="langkah-selanjutnya">Langkah Selanjutnya</h2>
+<p>Setelah berhasil deploy ke Divio:</p>
+<ol>
+<li>Setup monitoring dan alerting</li>
+<li>Konfigurasi backup schedule</li>
+<li>Implementasi CI/CD pipeline</li>
+<li>Performance optimization</li>
+</ol>
+<p>Untuk deployment ke platform lain, lihat panduan <a href="../flyio/">Fly.io</a> atau <a href="../other-servers/">Server Lainnya</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,65 @@
+site_name: RhamaaCMS Documentation
+site_description: Dokumentasi lengkap untuk RhamaaCMS - Template Wagtail untuk pengembangan cepat
+site_url: https://rhamaacms.readthedocs.io/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+
+nav:
+  - Beranda: index.md
+  - Memulai:
+    - Instalasi: getting-started/installation.md
+    - Konfigurasi Awal: getting-started/initial-setup.md
+    - Menjalankan Server: getting-started/running-server.md
+  - Panduan Penggunaan:
+    - Struktur Proyek: guide/project-structure.md
+    - Halaman dan Blok: guide/pages-blocks.md
+    - Mengelola Konten: guide/content-management.md
+    - Kustomisasi Template: guide/template-customization.md
+  - Deployment:
+    - Fly.io: deployment/flyio.md
+    - Divio Cloud: deployment/divio.md
+    - Server Lainnya: deployment/other-servers.md
+  - Pengembangan:
+    - Kontribusi: development/contributing.md
+    - Struktur Template: development/template-structure.md
+    - Testing: development/testing.md
+  - FAQ: faq.md
+
+plugins:
+  - search
+  - mkdocstrings
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html

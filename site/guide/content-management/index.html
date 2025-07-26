@@ -1,0 +1,2482 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dokumentasi lengkap untuk RhamaaCMS - Template Wagtail untuk pengembangan cepat">
+      
+      
+      
+        <link rel="canonical" href="https://rhamaacms.readthedocs.io/guide/content-management/">
+      
+      
+        <link rel="prev" href="../pages-blocks/">
+      
+      
+        <link rel="next" href="../template-customization/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Mengelola Konten - RhamaaCMS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mengelola-konten" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RhamaaCMS Documentation" class="md-header__button md-logo" aria-label="RhamaaCMS Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RhamaaCMS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mengelola Konten
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Beranda
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Memulai
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../project-structure/" class="md-tabs__link">
+          
+  
+  
+  Panduan Penggunaan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../deployment/flyio/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/contributing/" class="md-tabs__link">
+          
+  
+  
+  Pengembangan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RhamaaCMS Documentation" class="md-nav__button md-logo" aria-label="RhamaaCMS Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RhamaaCMS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Beranda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Memulai
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Memulai
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instalasi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/initial-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Konfigurasi Awal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/running-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Menjalankan Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Panduan Penggunaan
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Panduan Penggunaan
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Struktur Proyek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages-blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Halaman dan Blok
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Mengelola Konten
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mengelola Konten
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#akses-admin-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Akses Admin Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Akses Admin Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-ke-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login ke Admin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dashboard Admin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengelola-halaman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengelola Halaman
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengelola Halaman">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#struktur-halaman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Struktur Halaman
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#membuat-halaman-baru" class="md-nav__link">
+    <span class="md-ellipsis">
+      Membuat Halaman Baru
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-halaman-existing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit Halaman Existing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengelola-status-halaman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengelola Status Halaman
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengelola Status Halaman">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#draft-vs-published" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draft vs Published
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Approval
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menggunakan-streamfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menggunakan StreamField
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menggunakan StreamField">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konsep-streamfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konsep StreamField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-blok-konten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menambah Blok Konten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rich-text-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rich Text Editor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rich Text Editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatting-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard Shortcuts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Blocks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hero-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hero Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Card Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gallery-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gallery Block
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengelola-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengelola Media
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengelola Media">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upload-gambar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload Gambar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimasi-gambar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimasi Gambar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimasi Gambar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format-yang-didukung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format yang Didukung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-dokumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload Dokumen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload Dokumen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format-dokumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format Dokumen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengelola-menu-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengelola Menu Navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengelola Menu Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Navigation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footer-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Footer Links
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seo-dan-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      SEO dan Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SEO dan Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-level-seo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page-level SEO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#site-wide-seo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site-wide SEO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      Social Media
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-dan-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow dan Collaboration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow dan Collaboration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moderator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moderator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administrator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comments-dan-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments dan Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revision-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revision History
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-dan-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips dan Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips dan Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konten-tidak-muncul" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konten Tidak Muncul
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gambar-tidak-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gambar Tidak Loading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor-tidak-responsive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editor Tidak Responsive
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-selanjutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      Langkah Selanjutnya
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kustomisasi Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/flyio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fly.io
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/divio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Divio Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/other-servers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server Lainnya
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pengembangan
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Pengembangan
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kontribusi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/template-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Struktur Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#akses-admin-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Akses Admin Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Akses Admin Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login-ke-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login ke Admin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dashboard Admin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengelola-halaman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengelola Halaman
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengelola Halaman">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#struktur-halaman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Struktur Halaman
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#membuat-halaman-baru" class="md-nav__link">
+    <span class="md-ellipsis">
+      Membuat Halaman Baru
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-halaman-existing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit Halaman Existing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengelola-status-halaman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengelola Status Halaman
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengelola Status Halaman">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#draft-vs-published" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draft vs Published
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Approval
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menggunakan-streamfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menggunakan StreamField
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menggunakan StreamField">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konsep-streamfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konsep StreamField
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-blok-konten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menambah Blok Konten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rich-text-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rich Text Editor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rich Text Editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatting-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard Shortcuts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Blocks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hero-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hero Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Card Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gallery-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gallery Block
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengelola-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengelola Media
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengelola Media">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upload-gambar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload Gambar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimasi-gambar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimasi Gambar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimasi Gambar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format-yang-didukung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format yang Didukung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-dokumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload Dokumen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload Dokumen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format-dokumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format Dokumen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengelola-menu-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengelola Menu Navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengelola Menu Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Navigation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footer-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Footer Links
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seo-dan-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      SEO dan Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SEO dan Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-level-seo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page-level SEO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#site-wide-seo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site-wide SEO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      Social Media
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-dan-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow dan Collaboration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow dan Collaboration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moderator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moderator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administrator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comments-dan-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments dan Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revision-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revision History
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-dan-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips dan Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips dan Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konten-tidak-muncul" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konten Tidak Muncul
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gambar-tidak-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gambar Tidak Loading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor-tidak-responsive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editor Tidak Responsive
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-selanjutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      Langkah Selanjutnya
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mengelola-konten">Mengelola Konten</h1>
+<p>Panduan lengkap untuk mengelola konten di RhamaaCMS menggunakan admin interface Wagtail.</p>
+<h2 id="akses-admin-panel">Akses Admin Panel</h2>
+<h3 id="login-ke-admin">Login ke Admin</h3>
+<ol>
+<li>Buka browser dan akses <code>http://localhost:8000/admin</code></li>
+<li>Masukkan kredensial:</li>
+<li><strong>Username:</strong> <code>rhamaa</code></li>
+<li><strong>Password:</strong> <code>admin</code></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Keamanan</p>
+<p>Segera ganti password default setelah login pertama kali!</p>
+</div>
+<h3 id="dashboard-admin">Dashboard Admin</h3>
+<p>Setelah login, Anda akan melihat dashboard dengan menu utama:
+- <strong>Pages</strong> - Mengelola halaman website
+- <strong>Images</strong> - Mengelola gambar
+- <strong>Documents</strong> - Mengelola dokumen
+- <strong>Snippets</strong> - Mengelola snippet konten
+- <strong>Users</strong> - Mengelola user
+- <strong>Settings</strong> - Pengaturan situs</p>
+<h2 id="mengelola-halaman">Mengelola Halaman</h2>
+<h3 id="struktur-halaman">Struktur Halaman</h3>
+<p>Wagtail menggunakan struktur tree untuk halaman:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Root
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└── Home (Homepage)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├── About
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── Services
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    │   ├── Web Development
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    │   └── Mobile Apps
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    └── Contact
+</code></pre></div></p>
+<h3 id="membuat-halaman-baru">Membuat Halaman Baru</h3>
+<ol>
+<li><strong>Navigasi ke Pages</strong></li>
+<li>Klik "Pages" di menu utama</li>
+<li>
+<p>Pilih parent page (biasanya Home)</p>
+</li>
+<li>
+<p><strong>Pilih Tipe Halaman</strong></p>
+</li>
+<li>Klik "Add child page"</li>
+<li>
+<p>Pilih tipe halaman (Content Page, Landing Page, dll)</p>
+</li>
+<li>
+<p><strong>Isi Konten</strong></p>
+</li>
+<li><strong>Title</strong>: Judul halaman</li>
+<li><strong>Slug</strong>: URL slug (otomatis generate dari title)</li>
+<li>
+<p><strong>Content</strong>: Isi konten menggunakan StreamField</p>
+</li>
+<li>
+<p><strong>Pengaturan SEO</strong></p>
+</li>
+<li><strong>Search description</strong>: Meta description untuk SEO</li>
+<li>
+<p><strong>Tags</strong>: Tag untuk kategorisasi</p>
+</li>
+<li>
+<p><strong>Publikasi</strong></p>
+</li>
+<li><strong>Save draft</strong>: Simpan sebagai draft</li>
+<li><strong>Publish</strong>: Publikasikan langsung</li>
+<li><strong>Schedule</strong>: Jadwalkan publikasi</li>
+</ol>
+<h3 id="edit-halaman-existing">Edit Halaman Existing</h3>
+<ol>
+<li>Navigasi ke halaman yang ingin diedit</li>
+<li>Klik "Edit" di toolbar admin</li>
+<li>Lakukan perubahan</li>
+<li>Pilih action:</li>
+<li><strong>Save draft</strong>: Simpan perubahan sebagai draft</li>
+<li><strong>Publish</strong>: Publikasikan perubahan</li>
+<li><strong>Replace current draft</strong>: Ganti draft yang ada</li>
+</ol>
+<h3 id="mengelola-status-halaman">Mengelola Status Halaman</h3>
+<h4 id="draft-vs-published">Draft vs Published</h4>
+<ul>
+<li><strong>Draft</strong>: Halaman belum dipublikasi, hanya bisa dilihat di admin</li>
+<li><strong>Published</strong>: Halaman sudah live dan bisa diakses publik</li>
+<li><strong>Scheduled</strong>: Halaman dijadwalkan untuk publikasi otomatis</li>
+</ul>
+<h4 id="workflow-approval">Workflow Approval</h4>
+<p>Untuk tim yang lebih besar, aktifkan workflow approval:</p>
+<ol>
+<li><strong>Settings</strong> → <strong>Workflow</strong></li>
+<li>Buat workflow baru</li>
+<li>Assign ke halaman atau section tertentu</li>
+<li>Set approver dan reviewer</li>
+</ol>
+<h2 id="menggunakan-streamfield">Menggunakan StreamField</h2>
+<h3 id="konsep-streamfield">Konsep StreamField</h3>
+<p>StreamField memungkinkan editor membuat konten yang fleksibel dengan berbagai tipe blok.</p>
+<h3 id="menambah-blok-konten">Menambah Blok Konten</h3>
+<ol>
+<li><strong>Klik tombol "+"</strong> di StreamField</li>
+<li><strong>Pilih tipe blok</strong>:</li>
+<li><strong>Heading</strong>: Judul section</li>
+<li><strong>Paragraph</strong>: Teks paragraf</li>
+<li><strong>Image</strong>: Gambar dengan caption</li>
+<li><strong>Quote</strong>: Kutipan</li>
+<li>
+<p><strong>Hero</strong>: Section hero dengan CTA</p>
+</li>
+<li>
+<p><strong>Isi konten blok</strong></p>
+</li>
+<li><strong>Atur urutan</strong> dengan drag &amp; drop</li>
+<li><strong>Duplikasi blok</strong> dengan tombol copy</li>
+<li><strong>Hapus blok</strong> dengan tombol delete</li>
+</ol>
+<h3 id="rich-text-editor">Rich Text Editor</h3>
+<p>Untuk blok paragraph dan rich text:</p>
+<h4 id="formatting-options">Formatting Options</h4>
+<ul>
+<li><strong>Bold</strong> dan <em>Italic</em></li>
+<li>Heading levels (H2, H3, H4)</li>
+<li>Lists (bullet dan numbered)</li>
+<li>Links (internal dan external)</li>
+<li>Embed media</li>
+</ul>
+<h4 id="keyboard-shortcuts">Keyboard Shortcuts</h4>
+<ul>
+<li><code>Ctrl+B</code>: Bold</li>
+<li><code>Ctrl+I</code>: Italic</li>
+<li><code>Ctrl+K</code>: Insert link</li>
+<li><code>Ctrl+Z</code>: Undo</li>
+<li><code>Ctrl+Y</code>: Redo</li>
+</ul>
+<h3 id="custom-blocks">Custom Blocks</h3>
+<p>RhamaaCMS menyediakan custom blocks:</p>
+<h4 id="hero-block">Hero Block</h4>
+<ul>
+<li><strong>Title</strong>: Judul utama</li>
+<li><strong>Subtitle</strong>: Subjudul</li>
+<li><strong>Background Image</strong>: Gambar latar</li>
+<li><strong>CTA Button</strong>: Tombol call-to-action</li>
+</ul>
+<h4 id="card-block">Card Block</h4>
+<ul>
+<li><strong>Title</strong>: Judul kartu</li>
+<li><strong>Description</strong>: Deskripsi</li>
+<li><strong>Image</strong>: Gambar kartu</li>
+<li><strong>Link</strong>: URL tujuan</li>
+</ul>
+<h4 id="gallery-block">Gallery Block</h4>
+<ul>
+<li><strong>Title</strong>: Judul galeri</li>
+<li><strong>Images</strong>: Multiple gambar</li>
+<li><strong>Layout</strong>: Grid atau carousel</li>
+</ul>
+<h2 id="mengelola-media">Mengelola Media</h2>
+<h3 id="upload-gambar">Upload Gambar</h3>
+<ol>
+<li><strong>Navigasi ke Images</strong></li>
+<li><strong>Klik "Add an image"</strong></li>
+<li><strong>Upload file</strong> (drag &amp; drop atau browse)</li>
+<li><strong>Isi metadata</strong>:</li>
+<li><strong>Title</strong>: Nama gambar</li>
+<li><strong>Alt text</strong>: Untuk accessibility</li>
+<li><strong>Tags</strong>: Untuk kategorisasi</li>
+</ol>
+<h3 id="optimasi-gambar">Optimasi Gambar</h3>
+<h4 id="format-yang-didukung">Format yang Didukung</h4>
+<ul>
+<li><strong>JPEG</strong>: Untuk foto</li>
+<li><strong>PNG</strong>: Untuk gambar dengan transparency</li>
+<li><strong>WebP</strong>: Format modern untuk web</li>
+<li><strong>SVG</strong>: Untuk icon dan logo</li>
+</ul>
+<h4 id="best-practices">Best Practices</h4>
+<ul>
+<li>Gunakan alt text yang deskriptif</li>
+<li>Compress gambar sebelum upload</li>
+<li>Gunakan format yang tepat</li>
+<li>Pertimbangkan responsive images</li>
+</ul>
+<h3 id="upload-dokumen">Upload Dokumen</h3>
+<ol>
+<li><strong>Navigasi ke Documents</strong></li>
+<li><strong>Klik "Add a document"</strong></li>
+<li><strong>Upload file</strong></li>
+<li><strong>Isi informasi</strong>:</li>
+<li><strong>Title</strong>: Nama dokumen</li>
+<li><strong>Tags</strong>: Kategorisasi</li>
+</ol>
+<h4 id="format-dokumen">Format Dokumen</h4>
+<ul>
+<li>PDF, DOC, DOCX</li>
+<li>XLS, XLSX</li>
+<li>PPT, PPTX</li>
+<li>TXT, CSV</li>
+</ul>
+<h2 id="mengelola-menu-navigation">Mengelola Menu Navigation</h2>
+<h3 id="main-navigation">Main Navigation</h3>
+<p>Edit navigation menu di:
+1. <strong>Settings</strong> → <strong>Navigation</strong>
+2. <strong>Add menu item</strong>:
+   - <strong>Link to page</strong>: Link ke halaman internal
+   - <strong>Custom URL</strong>: Link eksternal
+   - <strong>Label</strong>: Teks yang ditampilkan</p>
+<h3 id="footer-links">Footer Links</h3>
+<p>Kelola footer links di:
+1. <strong>Snippets</strong> → <strong>Footer Links</strong>
+2. <strong>Add footer link</strong>
+3. <strong>Atur urutan</strong> dengan drag &amp; drop</p>
+<h2 id="seo-dan-metadata">SEO dan Metadata</h2>
+<h3 id="page-level-seo">Page-level SEO</h3>
+<p>Untuk setiap halaman:
+1. <strong>Promote tab</strong>:
+   - <strong>Search description</strong>: Meta description
+   - <strong>Tags</strong>: Content tags
+   - <strong>Featured image</strong>: Social media image</p>
+<ol>
+<li><strong>Settings tab</strong>:</li>
+<li><strong>Show in menus</strong>: Tampilkan di navigation</li>
+<li><strong>Privacy</strong>: Public atau private</li>
+</ol>
+<h3 id="site-wide-seo">Site-wide SEO</h3>
+<ol>
+<li><strong>Settings</strong> → <strong>Sites</strong></li>
+<li><strong>Edit site</strong>:</li>
+<li><strong>Site name</strong>: Nama situs</li>
+<li><strong>Hostname</strong>: Domain utama</li>
+</ol>
+<h3 id="social-media">Social Media</h3>
+<p>Konfigurasi social media metadata:
+- Open Graph tags
+- Twitter Card tags
+- Structured data (JSON-LD)</p>
+<h2 id="workflow-dan-collaboration">Workflow dan Collaboration</h2>
+<h3 id="user-roles">User Roles</h3>
+<p>RhamaaCMS mendukung berbagai user roles:</p>
+<h4 id="editor">Editor</h4>
+<ul>
+<li>Buat dan edit konten</li>
+<li>Tidak bisa publish tanpa approval</li>
+</ul>
+<h4 id="moderator">Moderator</h4>
+<ul>
+<li>Review dan approve konten</li>
+<li>Manage user permissions</li>
+</ul>
+<h4 id="administrator">Administrator</h4>
+<ul>
+<li>Full access ke semua fitur</li>
+<li>Manage site settings</li>
+</ul>
+<h3 id="comments-dan-review">Comments dan Review</h3>
+<ol>
+<li><strong>Enable moderation</strong> di page settings</li>
+<li><strong>Add comments</strong> untuk feedback</li>
+<li><strong>Track changes</strong> dengan revision history</li>
+</ol>
+<h3 id="revision-history">Revision History</h3>
+<p>Setiap halaman menyimpan history:
+1. <strong>Klik "History"</strong> di page editor
+2. <strong>Compare versions</strong> untuk melihat perubahan
+3. <strong>Revert</strong> ke versi sebelumnya jika diperlukan</p>
+<h2 id="tips-dan-best-practices">Tips dan Best Practices</h2>
+<h3 id="content-strategy">Content Strategy</h3>
+<ol>
+<li><strong>Rencanakan struktur</strong> sebelum membuat konten</li>
+<li><strong>Gunakan consistent naming</strong> untuk halaman</li>
+<li><strong>Optimize untuk SEO</strong> dengan keyword research</li>
+<li><strong>Regular content audit</strong> untuk update konten lama</li>
+</ol>
+<h3 id="performance">Performance</h3>
+<ol>
+<li><strong>Optimize images</strong> sebelum upload</li>
+<li><strong>Gunakan caching</strong> untuk konten yang jarang berubah</li>
+<li><strong>Minimize plugins</strong> yang tidak perlu</li>
+<li><strong>Regular database cleanup</strong></li>
+</ol>
+<h3 id="accessibility">Accessibility</h3>
+<ol>
+<li><strong>Gunakan alt text</strong> untuk semua gambar</li>
+<li><strong>Proper heading hierarchy</strong> (H1, H2, H3)</li>
+<li><strong>Descriptive link text</strong></li>
+<li><strong>Color contrast</strong> yang cukup</li>
+</ol>
+<h3 id="security">Security</h3>
+<ol>
+<li><strong>Regular password updates</strong></li>
+<li><strong>Limit user permissions</strong> sesuai kebutuhan</li>
+<li><strong>Monitor login attempts</strong></li>
+<li><strong>Keep system updated</strong></li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="konten-tidak-muncul">Konten Tidak Muncul</h3>
+<p><strong>Kemungkinan penyebab:</strong>
+- Halaman masih draft
+- Cache belum clear
+- Template error</p>
+<p><strong>Solusi:</strong>
+1. Check status publikasi
+2. Clear cache browser
+3. Check error logs</p>
+<h3 id="gambar-tidak-loading">Gambar Tidak Loading</h3>
+<p><strong>Kemungkinan penyebab:</strong>
+- File terlalu besar
+- Format tidak didukung
+- Permission error</p>
+<p><strong>Solusi:</strong>
+1. Compress gambar
+2. Convert ke format yang didukung
+3. Check file permissions</p>
+<h3 id="editor-tidak-responsive">Editor Tidak Responsive</h3>
+<p><strong>Solusi:</strong>
+1. Clear browser cache
+2. Disable browser extensions
+3. Try different browser
+4. Check JavaScript errors</p>
+<h2 id="langkah-selanjutnya">Langkah Selanjutnya</h2>
+<p>Setelah menguasai content management, lanjutkan ke <a href="../template-customization/">Kustomisasi Template</a> untuk mempelajari cara mengkustomisasi tampilan website.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
