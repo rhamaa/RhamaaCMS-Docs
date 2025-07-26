@@ -1,41 +1,41 @@
 # FAQ (Frequently Asked Questions)
 
-Kumpulan pertanyaan yang sering diajukan tentang RhamaaCMS beserta jawabannya.
+Common questions about RhamaaCMS and their answers.
 
-## Instalasi dan Setup
+## Installation and Setup
 
-### Q: Versi Python apa yang didukung RhamaaCMS?
+### Q: What Python versions does RhamaaCMS support?
 
-**A:** RhamaaCMS mendukung Python 3.8 ke atas. Kami merekomendasikan menggunakan Python 3.11 untuk performa terbaik. Pastikan versi Python Anda kompatibel dengan [versi Wagtail yang digunakan](https://docs.wagtail.org/en/stable/releases/upgrading.html#compatible-django-python-versions).
+**A:** RhamaaCMS supports Python 3.8 and above. We recommend using Python 3.11 for the best performance. Make sure your Python version is compatible with the [Wagtail version being used](https://docs.wagtail.org/en/stable/releases/upgrading.html#compatible-django-python-versions).
 
-### Q: Apakah saya harus menggunakan virtual environment?
+### Q: Do I need to use a virtual environment?
 
-**A:** Ya, sangat disarankan menggunakan virtual environment untuk mengisolasi dependencies proyek. Ini mencegah konflik dengan package Python lain di sistem Anda.
+**A:** Yes, it's highly recommended to use a virtual environment to isolate project dependencies. This prevents conflicts with other Python packages on your system.
 
-### Q: Bagaimana cara mengatasi error "wagtail command not found"?
+### Q: How do I fix "wagtail command not found" error?
 
-**A:** Pastikan:
-1. Virtual environment sudah aktif
-2. Wagtail sudah terinstall: `pip install wagtail`
-3. PATH environment variable sudah benar
+**A:** Ensure:
+1. Virtual environment is active
+2. Wagtail is installed: `pip install wagtail`
+3. PATH environment variable is correct
 
-### Q: Apakah bisa menggunakan database selain SQLite?
+### Q: Can I use databases other than SQLite?
 
-**A:** Ya, RhamaaCMS mendukung PostgreSQL, MySQL, dan database lain yang didukung Django. Update konfigurasi di `settings/base.py` sesuai database pilihan Anda.
+**A:** Yes, RhamaaCMS supports PostgreSQL, MySQL, and other Django-supported databases. Update the configuration in `settings/base.py` according to your chosen database.
 
-## Penggunaan dan Development
+## Usage and Development
 
-### Q: Bagaimana cara menambah halaman baru?
+### Q: How do I add a new page?
 
 **A:** 
-1. Buat model page baru di `models.py`
-2. Buat template di folder `templates/`
-3. Jalankan `makemigrations` dan `migrate`
-4. Tambahkan halaman melalui admin panel
+1. Create a new page model in `models.py`
+2. Create a template in the `templates/` folder
+3. Run `makemigrations` and `migrate`
+4. Add the page through the admin panel
 
-### Q: Bagaimana cara membuat custom block?
+### Q: How do I create custom blocks?
 
-**A:** Buat class yang inherit dari `blocks.StructBlock`:
+**A:** Create a class that inherits from `blocks.StructBlock`:
 
 ```python
 class CustomBlock(blocks.StructBlock):
@@ -46,18 +46,18 @@ class CustomBlock(blocks.StructBlock):
         template = 'blocks/custom_block.html'
 ```
 
-### Q: Apakah bisa mengubah tema admin Wagtail?
+### Q: Can I customize the Wagtail admin theme?
 
-**A:** Ya, Anda bisa mengkustomisasi admin interface dengan:
-1. Override template admin
-2. Menambah custom CSS/JS
-3. Menggunakan third-party packages seperti `wagtail-admin-theme`
+**A:** Yes, you can customize the admin interface by:
+1. Overriding admin templates
+2. Adding custom CSS/JS
+3. Using third-party packages like `wagtail-admin-theme`
 
-### Q: Bagaimana cara backup data?
+### Q: How do I backup data?
 
-**A:** Gunakan Django management commands:
+**A:** Use Django management commands:
 ```bash
-# Backup ke JSON
+# Backup to JSON
 python manage.py dumpdata > backup.json
 
 # Backup database (PostgreSQL)
@@ -66,141 +66,141 @@ pg_dump database_name > backup.sql
 
 ## Deployment
 
-### Q: Platform deployment mana yang direkomendasikan?
+### Q: Which deployment platform is recommended?
 
-**A:** RhamaaCMS dapat di-deploy ke berbagai platform:
-- **Fly.io** - Mudah dan cepat untuk small-medium apps
-- **Divio Cloud** - Optimized untuk Django apps
-- **Heroku** - Popular dan user-friendly
-- **DigitalOcean** - Flexible dan cost-effective
-- **AWS/GCP** - Untuk enterprise applications
+**A:** RhamaaCMS can be deployed to various platforms:
+- **Fly.io** - Easy and fast for small-medium apps
+- **Divio Cloud** - Optimized for Django apps
+- **Heroku** - Popular and user-friendly
+- **DigitalOcean** - Flexible and cost-effective
+- **AWS/GCP** - For enterprise applications
 
-### Q: Apakah perlu menggunakan CDN untuk static files?
+### Q: Do I need a CDN for static files?
 
-**A:** Untuk production, sangat disarankan menggunakan CDN untuk:
-- Mempercepat loading static files
-- Mengurangi load server
-- Meningkatkan user experience
+**A:** For production, using a CDN is highly recommended to:
+- Speed up static file loading
+- Reduce server load
+- Improve user experience
 
-### Q: Bagaimana cara setup HTTPS?
+### Q: How do I set up HTTPS?
 
-**A:** Tergantung platform deployment:
-- **Fly.io/Divio**: Otomatis tersedia
-- **Custom server**: Gunakan Let's Encrypt atau SSL certificate
-- Update `SECURE_SSL_REDIRECT = True` di settings
+**A:** Depends on your deployment platform:
+- **Fly.io/Divio**: Automatically available
+- **Custom server**: Use Let's Encrypt or SSL certificate
+- Update `SECURE_SSL_REDIRECT = True` in settings
 
-### Q: Bagaimana cara mengatasi error 500 di production?
+### Q: How do I fix 500 errors in production?
 
 **A:** 
-1. Check logs aplikasi
-2. Pastikan `DEBUG = False`
-3. Verifikasi `ALLOWED_HOSTS` sudah benar
+1. Check application logs
+2. Ensure `DEBUG = False`
+3. Verify `ALLOWED_HOSTS` is correct
 4. Check database connection
-5. Pastikan static files sudah di-collect
+5. Ensure static files are collected
 
-## Performance dan Optimization
+## Performance and Optimization
 
-### Q: Bagaimana cara mempercepat loading website?
+### Q: How can I speed up website loading?
 
-**A:** Beberapa tips optimization:
+**A:** Several optimization tips:
 1. Enable caching (Redis/Memcached)
 2. Optimize database queries
-3. Compress dan minify static files
-4. Gunakan CDN
+3. Compress and minify static files
+4. Use CDN
 5. Optimize images
 6. Enable gzip compression
 
-### Q: Apakah perlu menggunakan caching?
+### Q: Do I need caching?
 
-**A:** Ya, untuk production disarankan menggunakan:
-- **Page caching** untuk halaman yang jarang berubah
-- **Database caching** untuk query yang expensive
-- **Template fragment caching** untuk komponen yang berat
+**A:** Yes, for production it's recommended to use:
+- **Page caching** for rarely changing pages
+- **Database caching** for expensive queries
+- **Template fragment caching** for heavy components
 
-### Q: Bagaimana cara monitoring performance?
+### Q: How do I monitor performance?
 
-**A:** Gunakan tools seperti:
+**A:** Use tools like:
 - Django Debug Toolbar (development)
-- New Relic atau Datadog (production)
+- New Relic or Datadog (production)
 - Google PageSpeed Insights
-- GTmetrix untuk web performance
+- GTmetrix for web performance
 
-## Keamanan
+## Security
 
-### Q: Bagaimana cara mengamankan admin panel?
+### Q: How do I secure the admin panel?
 
 **A:** 
-1. Gunakan password yang kuat
+1. Use strong passwords
 2. Enable two-factor authentication
-3. Limit akses berdasarkan IP
-4. Regular update dependencies
+3. Limit access by IP
+4. Regular dependency updates
 5. Monitor login attempts
 
-### Q: Apakah perlu SSL certificate?
+### Q: Do I need an SSL certificate?
 
-**A:** Ya, SSL certificate wajib untuk:
-- Keamanan data
+**A:** Yes, SSL certificate is required for:
+- Data security
 - SEO ranking
 - User trust
 - Compliance requirements
 
-### Q: Bagaimana cara backup yang aman?
+### Q: How do I backup securely?
 
 **A:** 
 1. Encrypt backup files
-2. Store di multiple locations
+2. Store in multiple locations
 3. Regular backup schedule
 4. Test restore process
-5. Limit access ke backup files
+5. Limit access to backup files
 
 ## Troubleshooting
 
-### Q: Website loading sangat lambat, apa yang harus dilakukan?
+### Q: Website is loading very slowly, what should I do?
 
 **A:** 
-1. Check database queries dengan Django Debug Toolbar
+1. Check database queries with Django Debug Toolbar
 2. Enable caching
-3. Optimize images dan static files
+3. Optimize images and static files
 4. Check server resources
 5. Review third-party integrations
 
-### Q: Error "Template not found", bagaimana mengatasinya?
+### Q: "Template not found" error, how to fix it?
 
 **A:** 
-1. Check path template di `TEMPLATES` setting
-2. Pastikan nama file template benar
-3. Verifikasi struktur folder templates
+1. Check template path in `TEMPLATES` setting
+2. Ensure template file name is correct
+3. Verify template folder structure
 4. Check case sensitivity (Linux/macOS)
 
-### Q: Bagaimana cara debug error di production?
+### Q: How do I debug errors in production?
 
 **A:** 
 1. Check application logs
-2. Enable logging untuk specific modules
+2. Enable logging for specific modules
 3. Use error tracking tools (Sentry)
-4. Reproduce error di staging environment
+4. Reproduce error in staging environment
 
-### Q: Media files tidak muncul di production?
+### Q: Media files not showing in production?
 
 **A:** 
-1. Check `MEDIA_URL` dan `MEDIA_ROOT` settings
-2. Pastikan web server serve media files
-3. Untuk cloud storage, check credentials
+1. Check `MEDIA_URL` and `MEDIA_ROOT` settings
+2. Ensure web server serves media files
+3. For cloud storage, check credentials
 4. Verify file permissions
 
 ## Customization
 
-### Q: Bagaimana cara mengubah tampilan homepage?
+### Q: How do I change the homepage appearance?
 
 **A:** 
-1. Edit model `HomePage` di `home/models.py`
+1. Edit `HomePage` model in `home/models.py`
 2. Update template `home/home_page.html`
-3. Modify CSS di static files
-4. Jalankan migrations jika ada perubahan model
+3. Modify CSS in static files
+4. Run migrations if model changes
 
-### Q: Apakah bisa menambah field custom ke page?
+### Q: Can I add custom fields to pages?
 
-**A:** Ya, tambahkan field di model page:
+**A:** Yes, add fields to the page model:
 
 ```python
 class HomePage(Page):
@@ -211,67 +211,67 @@ class HomePage(Page):
     ]
 ```
 
-### Q: Bagaimana cara membuat menu navigation custom?
+### Q: How do I create custom navigation menu?
 
 **A:** 
-1. Buat model untuk menu items
-2. Register di admin
-3. Create template tag untuk render menu
-4. Include di base template
+1. Create model for menu items
+2. Register in admin
+3. Create template tag to render menu
+4. Include in base template
 
-## Integrasi
+## Integration
 
-### Q: Apakah bisa integrasi dengan API external?
+### Q: Can I integrate with external APIs?
 
-**A:** Ya, Anda bisa:
-1. Buat service classes untuk API calls
-2. Use Django REST framework untuk API endpoints
-3. Implement caching untuk API responses
-4. Handle error dan timeout dengan baik
+**A:** Yes, you can:
+1. Create service classes for API calls
+2. Use Django REST framework for API endpoints
+3. Implement caching for API responses
+4. Handle errors and timeouts properly
 
-### Q: Bagaimana cara integrasi dengan payment gateway?
+### Q: How do I integrate payment gateways?
 
 **A:** 
-1. Install package yang sesuai (stripe, paypal, dll)
-2. Buat models untuk orders/transactions
+1. Install appropriate package (stripe, paypal, etc.)
+2. Create models for orders/transactions
 3. Implement webhook handlers
 4. Add security measures
 
-### Q: Apakah mendukung multi-language?
+### Q: Does it support multi-language?
 
-**A:** Ya, gunakan:
+**A:** Yes, use:
 1. Django internationalization (i18n)
 2. Wagtail localization
-3. `wagtail-localize` package untuk translation management
+3. `wagtail-localize` package for translation management
 
 ## Support
 
-### Q: Dimana bisa mendapat bantuan jika ada masalah?
+### Q: Where can I get help if I have problems?
 
 **A:** 
-1. **Dokumentasi**: Baca dokumentasi lengkap
-2. **GitHub Issues**: Report bugs atau request features
-3. **Wagtail Community**: Slack channel dan forum
-4. **Stack Overflow**: Tag dengan `wagtail` dan `django`
+1. **Documentation**: Read the complete documentation
+2. **GitHub Issues**: Report bugs or request features
+3. **Wagtail Community**: Slack channel and forum
+4. **Stack Overflow**: Tag with `wagtail` and `django`
 
-### Q: Bagaimana cara berkontribusi ke RhamaaCMS?
+### Q: How can I contribute to RhamaaCMS?
 
 **A:** 
-1. Fork repository di GitHub
-2. Buat branch untuk feature/bugfix
+1. Fork the repository on GitHub
+2. Create a branch for feature/bugfix
 3. Follow coding standards
-4. Submit pull request dengan deskripsi yang jelas
-5. Baca [panduan kontribusi](development/contributing.md)
+4. Submit pull request with clear description
+5. Read the [contributing guide](development/contributing.md)
 
-### Q: Apakah ada roadmap development?
+### Q: Is there a development roadmap?
 
-**A:** Ya, check GitHub repository untuk:
+**A:** Yes, check the GitHub repository for:
 - Planned features
 - Current milestones
-- Issue labels untuk priority
+- Issue labels for priority
 
 ---
 
-**Tidak menemukan jawaban yang Anda cari?** 
+**Can't find the answer you're looking for?** 
 
-Silakan buka issue di [GitHub repository](https://github.com/rhamaa/RhamaaCMS) atau hubungi komunitas untuk bantuan lebih lanjut.
+Please open an issue on the [GitHub repository](https://github.com/rhamaa/RhamaaCMS) or contact the community for further assistance.

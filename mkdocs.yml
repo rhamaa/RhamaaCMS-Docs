@@ -1,5 +1,5 @@
 site_name: RhamaaCMS Documentation
-site_description: Dokumentasi lengkap untuk RhamaaCMS - Template Wagtail untuk pengembangan cepat
+site_description: Complete documentation for RhamaaCMS - Wagtail template for rapid development
 site_url: https://rhamaacms.readthedocs.io/
 
 theme:
@@ -25,30 +25,83 @@ theme:
     - search.highlight
     - search.share
     - content.code.copy
+    - navigation.instant
+    - navigation.tracking
+  language: en
 
 nav:
-  - Beranda: index.md
-  - Memulai:
-    - Instalasi: getting-started/installation.md
-    - Konfigurasi Awal: getting-started/initial-setup.md
-    - Menjalankan Server: getting-started/running-server.md
-  - Panduan Penggunaan:
-    - Struktur Proyek: guide/project-structure.md
-    - Halaman dan Blok: guide/pages-blocks.md
-    - Mengelola Konten: guide/content-management.md
-    - Kustomisasi Template: guide/template-customization.md
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Initial Setup: getting-started/initial-setup.md
+    - Running Server: getting-started/running-server.md
+  - User Guide:
+    - Project Structure: guide/project-structure.md
+    - Pages and Blocks: guide/pages-blocks.md
+    - Content Management: guide/content-management.md
+    - Template Customization: guide/template-customization.md
   - Deployment:
     - Fly.io: deployment/flyio.md
     - Divio Cloud: deployment/divio.md
-    - Server Lainnya: deployment/other-servers.md
-  - Pengembangan:
-    - Kontribusi: development/contributing.md
-    - Struktur Template: development/template-structure.md
+    - Other Servers: deployment/other-servers.md
+  - Development:
+    - Contributing: development/contributing.md
+    - Template Structure: development/template-structure.md
     - Testing: development/testing.md
   - FAQ: faq.md
 
 plugins:
-  - search
+  - search:
+      lang: 
+        - en
+        - id
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+          nav_translations:
+            Home: Home
+            Getting Started: Getting Started
+            Installation: Installation
+            Initial Setup: Initial Setup
+            Running Server: Running Server
+            User Guide: User Guide
+            Project Structure: Project Structure
+            Pages and Blocks: Pages and Blocks
+            Content Management: Content Management
+            Template Customization: Template Customization
+            Deployment: Deployment
+            Development: Development
+            Contributing: Contributing
+            Template Structure: Template Structure
+            Testing: Testing
+            FAQ: FAQ
+        - locale: id
+          name: Bahasa Indonesia
+          build: true
+          nav_translations:
+            Home: Beranda
+            Getting Started: Memulai
+            Installation: Instalasi
+            Initial Setup: Konfigurasi Awal
+            Running Server: Menjalankan Server
+            User Guide: Panduan Penggunaan
+            Project Structure: Struktur Proyek
+            Pages and Blocks: Halaman dan Blok
+            Content Management: Mengelola Konten
+            Template Customization: Kustomisasi Template
+            Deployment: Deployment
+            Development: Pengembangan
+            Contributing: Kontribusi
+            Template Structure: Struktur Template
+            Testing: Testing
+            FAQ: FAQ
   - mkdocstrings
 
 markdown_extensions:

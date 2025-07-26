@@ -1,8 +1,8 @@
-# Project Structure
+# Struktur Proyek
 
-Understanding the RhamaaCMS project structure will help you develop and customize the application more effectively.
+Memahami struktur proyek RhamaaCMS akan membantu Anda mengembangkan dan mengkustomisasi aplikasi dengan lebih efektif.
 
-## Main Directory Structure
+## Struktur Direktori Utama
 
 ```
 myproject/
@@ -28,11 +28,11 @@ myproject/
 └── README.md               # Project documentation
 ```
 
-## Django Apps
+## Apps Django
 
 ### Home App
 
-The main app containing the homepage and basic models:
+App utama yang berisi halaman homepage dan model dasar:
 
 ```python
 # home/models.py
@@ -48,14 +48,14 @@ class HomePage(Page):
     ]
 ```
 
-**Important files:**
-- `models.py` - Page models
-- `templates/home/` - Page templates
+**File penting:**
+- `models.py` - Model halaman
+- `templates/home/` - Template halaman
 - `migrations/` - Database migrations
 
 ### Search App
 
-Provides search functionality across the site:
+Menyediakan fungsi pencarian di seluruh situs:
 
 ```python
 # search/views.py
@@ -72,7 +72,7 @@ def search(request):
 
 ### Base Settings (`settings/base.py`)
 
-Basic configuration used in all environments:
+Konfigurasi dasar yang digunakan di semua environment:
 
 ```python
 # Core Django settings
@@ -107,7 +107,7 @@ WAGTAILADMIN_BASE_URL = 'http://localhost:8000'
 
 ### Development Settings (`settings/dev.py`)
 
-Configuration specific to development:
+Konfigurasi khusus untuk development:
 
 ```python
 from .base import *
@@ -123,13 +123,13 @@ DATABASES = {
     }
 }
 
-# Email backend for development
+# Email backend untuk development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ```
 
 ### Production Settings (`settings/production.py`)
 
-Configuration for production environment:
+Konfigurasi untuk production environment:
 
 ```python
 from .base import *
@@ -149,7 +149,7 @@ SECURE_HSTS_PRELOAD = True
 
 ### Global Templates (`templates/`)
 
-Templates used across the application:
+Template yang digunakan di seluruh aplikasi:
 
 ```
 templates/
@@ -164,7 +164,7 @@ templates/
 
 ### App-specific Templates
 
-Each app has its own templates folder:
+Setiap app memiliki folder templates sendiri:
 
 ```
 home/templates/home/
@@ -175,7 +175,7 @@ home/templates/home/
 
 ## Static Files
 
-### Static Files Structure
+### Struktur Static Files
 
 ```
 static/
@@ -193,7 +193,7 @@ static/
 
 ### CSS Architecture
 
-RhamaaCMS uses a modular approach for CSS:
+RhamaaCMS menggunakan pendekatan modular untuk CSS:
 
 ```css
 /* static/css/main.css */
@@ -206,7 +206,7 @@ RhamaaCMS uses a modular approach for CSS:
 
 ## Media Files
 
-The `media/` folder stores user-uploaded files:
+Folder `media/` menyimpan file yang diupload user:
 
 ```
 media/
@@ -219,7 +219,7 @@ media/
 
 ## Database Migrations
 
-Migrations are stored in each app's `migrations/` folder:
+Migrations disimpan di folder `migrations/` setiap app:
 
 ```
 home/migrations/
@@ -233,7 +233,7 @@ home/migrations/
 
 ### Makefile
 
-Contains frequently used development commands:
+Berisi perintah-perintah development yang sering digunakan:
 
 ```makefile
 .PHONY: start install migrate load-data
@@ -253,7 +253,7 @@ load-data:
 
 ### Requirements.txt
 
-List of Python dependencies:
+Daftar dependencies Python:
 
 ```
 Django>=4.2,<5.0
@@ -265,30 +265,30 @@ django-extensions>=3.2
 
 ## Best Practices
 
-### 1. App Organization
+### 1. Organisasi Apps
 
-- Create separate apps for each major functionality
-- Use descriptive names
-- Follow Django conventions
+- Buat app terpisah untuk setiap fungsionalitas utama
+- Gunakan nama yang deskriptif
+- Ikuti konvensi Django
 
 ### 2. Settings Management
 
-- Separate settings by environment
-- Use environment variables for sensitive data
-- Document all settings
+- Pisahkan settings berdasarkan environment
+- Gunakan environment variables untuk data sensitif
+- Dokumentasikan semua settings
 
 ### 3. Template Organization
 
-- Use template inheritance
-- Create reusable components
-- Separate logic from presentation
+- Gunakan template inheritance
+- Buat komponen yang reusable
+- Pisahkan logic dari presentation
 
 ### 4. Static Files
 
-- Organize by type and component
-- Use build tools for optimization
-- Implement versioning for caching
+- Organisir berdasarkan tipe dan komponen
+- Gunakan build tools untuk optimasi
+- Implementasi versioning untuk caching
 
-## Next Steps
+## Langkah Selanjutnya
 
-After understanding the project structure, continue to [Pages and Blocks](pages-blocks.md) to learn how to create content.
+Setelah memahami struktur proyek, lanjutkan ke [Halaman dan Blok](pages-blocks.md) untuk mempelajari cara membuat konten.

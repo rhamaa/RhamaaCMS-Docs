@@ -1,66 +1,66 @@
-# Menjalankan Server
+# Running the Server
 
-Panduan untuk menjalankan server development dan mengakses aplikasi RhamaaCMS Anda.
+Guide to running the development server and accessing your RhamaaCMS application.
 
-## Menjalankan Development Server
+## Starting the Development Server
 
-### Menggunakan Make Command
+### Using Make Command
 
-RhamaaCMS menyediakan Makefile untuk mempermudah development:
+RhamaaCMS provides a Makefile for easier development:
 
 ```bash
 make start
 ```
 
-### Menggunakan Django Command
+### Using Django Command
 
-Alternatif, Anda dapat menjalankan server secara langsung:
+Alternatively, you can run the server directly:
 
 ```bash
 python manage.py runserver
 ```
 
-### Menjalankan di Port Khusus
+### Running on Custom Port
 
 ```bash
 python manage.py runserver 8080
 ```
 
-atau
+or
 
 ```bash
 python manage.py runserver 0.0.0.0:8000
 ```
 
-!!! tip "Akses dari Jaringan"
-    Gunakan `0.0.0.0:8000` untuk mengakses server dari perangkat lain di jaringan yang sama.
+!!! tip "Network Access"
+    Use `0.0.0.0:8000` to access the server from other devices on the same network.
 
-## Mengakses Aplikasi
+## Accessing the Application
 
-Setelah server berjalan, Anda dapat mengakses:
+After the server is running, you can access:
 
 ### Frontend Website
 - **URL:** [http://localhost:8000](http://localhost:8000)
-- **Deskripsi:** Halaman utama website yang dapat dilihat pengunjung
+- **Description:** Main website that visitors can see
 
 ### Admin Panel
 - **URL:** [http://localhost:8000/admin](http://localhost:8000/admin)
-- **Kredensial Default:**
+- **Default Credentials:**
   - Username: `rhamaa`
   - Password: `admin`
 
-!!! warning "Keamanan"
-    Segera ganti password default setelah login pertama kali!
+!!! warning "Security"
+    Change the default password immediately after first login!
 
-### Django Admin (Opsional)
+### Django Admin (Optional)
 - **URL:** [http://localhost:8000/django-admin](http://localhost:8000/django-admin)
-- **Deskripsi:** Django admin interface untuk management tingkat rendah
+- **Description:** Django admin interface for low-level management
 
-## Fitur Development Server
+## Development Server Features
 
 ### Auto-reload
 
-Development server akan otomatis restart ketika Anda mengubah file Python:
+The development server automatically restarts when you change Python files:
 
 ```bash
 Watching for file changes with StatReloader
@@ -75,70 +75,70 @@ Quit the server with CONTROL-C.
 
 ### Static Files
 
-Static files (CSS, JS, images) disajikan otomatis dalam mode development.
+Static files (CSS, JS, images) are served automatically in development mode.
 
 ### Debug Mode
 
-Dalam development, debug mode aktif sehingga Anda akan melihat:
-- Error pages yang detail
-- Django Debug Toolbar (jika diinstall)
+In development, debug mode is active so you'll see:
+- Detailed error pages
+- Django Debug Toolbar (if installed)
 - SQL query information
 
-## Perintah Make Lainnya
+## Other Make Commands
 
-RhamaaCMS menyediakan beberapa perintah make yang berguna:
+RhamaaCMS provides several useful make commands:
 
 ### Load Data
 ```bash
 make load-data
 ```
-Memuat data dummy untuk development.
+Load dummy data for development.
 
 ### Dump Data
 ```bash
 make dump-data
 ```
-Menyimpan data saat ini ke fixtures.
+Save current data to fixtures.
 
 ### Run Tests
 ```bash
 make test
 ```
-Menjalankan test suite.
+Run the test suite.
 
 ### Collect Static Files
 ```bash
 make collectstatic
 ```
-Mengumpulkan static files untuk production.
+Collect static files for production.
 
 ### Database Migration
 ```bash
 make migrate
 ```
-Menjalankan database migrations.
+Run database migrations.
 
 ### Create Migration
 ```bash
 make makemigrations
 ```
-Membuat migration files baru.
+Create new migration files.
 
 ## Troubleshooting
 
-### Port Sudah Digunakan
+### Port Already in Use
 
 **Error:**
 ```
 Error: That port is already in use.
 ```
 
-**Solusi:**
+**Solution:**
 ```bash
-# Gunakan port lain
+# Use different port
 python manage.py runserver 8080
 
-# Atau kill process yang menggunakan port 8000
+# Or kill process using port 8000
 sudo lsof -t -i tcp:8000 | xargs kill -9
 ```
 
@@ -149,10 +149,10 @@ sudo lsof -t -i tcp:8000 | xargs kill -9
 PermissionError: [Errno 13] Permission denied
 ```
 
-**Solusi:**
-- Pastikan virtual environment aktif
-- Periksa permission folder proyek
-- Jalankan dengan user yang tepat
+**Solution:**
+- Ensure virtual environment is active
+- Check project folder permissions
+- Run with appropriate user
 
 ### Module Not Found
 
@@ -161,12 +161,12 @@ PermissionError: [Errno 13] Permission denied
 ModuleNotFoundError: No module named 'wagtail'
 ```
 
-**Solusi:**
+**Solution:**
 ```bash
-# Pastikan virtual environment aktif
+# Ensure virtual environment is active
 source env/bin/activate
 
-# Install ulang dependencies
+# Reinstall dependencies
 pip install -r requirements.txt
 ```
 
@@ -177,20 +177,20 @@ pip install -r requirements.txt
 django.db.utils.OperationalError: no such table
 ```
 
-**Solusi:**
+**Solution:**
 ```bash
-# Jalankan migrations
+# Run migrations
 python manage.py migrate
 
-# Atau gunakan make command
+# Or use make command
 make migrate
 ```
 
-## Tips Development
+## Development Tips
 
-### 1. Gunakan Debug Toolbar
+### 1. Use Debug Toolbar
 
-Install Django Debug Toolbar untuk debugging yang lebih baik:
+Install Django Debug Toolbar for better debugging:
 
 ```bash
 pip install django-debug-toolbar
@@ -198,15 +198,15 @@ pip install django-debug-toolbar
 
 ### 2. Monitor Log Files
 
-Pantau log files untuk debugging:
+Monitor log files for debugging:
 
 ```bash
 tail -f logs/django.log
 ```
 
-### 3. Gunakan Shell
+### 3. Use Shell
 
-Akses Django shell untuk testing:
+Access Django shell for testing:
 
 ```bash
 python manage.py shell
@@ -214,8 +214,8 @@ python manage.py shell
 
 ### 4. Browser Auto-refresh
 
-Gunakan tools seperti LiveReload untuk auto-refresh browser saat file berubah.
+Use tools like LiveReload for auto-refresh when files change.
 
-## Langkah Selanjutnya
+## Next Steps
 
-Setelah server berjalan dengan baik, Anda dapat mulai mempelajari [struktur proyek](../guide/project-structure.md) dan mulai mengembangkan konten.
+After the server is running properly, you can start learning about the [project structure](../guide/project-structure.md) and begin developing content.

@@ -1,8 +1,8 @@
-# Deploy to Fly.io
+# Deploy ke Fly.io
 
-Fly.io is a cloud platform that makes deploying applications easy with minimal configuration. This guide will help you deploy RhamaaCMS to Fly.io.
+Fly.io adalah platform cloud yang memudahkan deployment aplikasi dengan konfigurasi minimal. Panduan ini akan membantu Anda deploy RhamaaCMS ke Fly.io.
 
-## Prerequisites
+## Persiapan
 
 ### 1. Install Fly CLI
 
@@ -21,25 +21,25 @@ Fly.io is a cloud platform that makes deploying applications easy with minimal c
     iwr https://fly.io/install.ps1 -useb | iex
     ```
 
-### 2. Create Fly.io Account
+### 2. Buat Akun Fly.io
 
-If you don't have an account, sign up at [fly.io](https://fly.io/):
+Jika belum memiliki akun, daftar di [fly.io](https://fly.io/):
 
 ```bash
 fly auth signup
 ```
 
-Or login if you already have an account:
+Atau login jika sudah memiliki akun:
 
 ```bash
 fly auth login
 ```
 
-## Project Configuration
+## Konfigurasi Proyek
 
-### 1. fly.toml File
+### 1. File fly.toml
 
-RhamaaCMS already provides a `fly.toml` file configured for deployment:
+RhamaaCMS sudah menyediakan file `fly.toml` yang dikonfigurasi untuk deployment:
 
 ```toml
 # fly.toml
@@ -79,7 +79,7 @@ primary_region = "sin"
 
 ### 2. Dockerfile
 
-Ensure the Dockerfile is configured for production:
+Pastikan Dockerfile sudah sesuai untuk production:
 
 ```dockerfile
 FROM python:3.11-slim
@@ -117,7 +117,7 @@ CMD ["gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
 
 ### 3. Production Settings
 
-Update `settings/production.py`:
+Update file `settings/production.py`:
 
 ```python
 from .base import *
@@ -178,34 +178,34 @@ LOGGING = {
 
 ### 1. Launch Application
 
-In the project root directory, run:
+Di root directory proyek, jalankan:
 
 ```bash
 fly launch
 ```
 
-When asked about copying existing `fly.toml`, choose **"Yes"**:
+Saat ditanya tentang copying existing `fly.toml`, pilih **"Yes"**:
 
 ```
 ? Would you like to copy its configuration to the new app? Yes
 ```
 
-!!! warning "Important"
-    Choosing "No" will cause deployment failure as specific configuration is required.
+!!! warning "Penting"
+    Memilih "No" akan menyebabkan deployment gagal karena konfigurasi khusus diperlukan.
 
-### 2. Configure Region
+### 2. Konfigurasi Region
 
-If you want to change the region, choose "Yes" when asked:
+Jika ingin mengubah region, pilih "Yes" saat ditanya:
 
 ```
 ? Would you like to tweak these settings before proceeding? Yes
 ```
 
-Then select your desired region in the browser.
+Kemudian pilih region yang diinginkan di browser.
 
 ### 3. Set Secret Key
 
-Generate and set a secret key for Django:
+Generate dan set secret key untuk Django:
 
 ```bash
 # Generate secret key
@@ -221,9 +221,9 @@ fly secrets set SECRET_KEY="your-generated-secret-key"
 fly deploy
 ```
 
-### 5. Create Volume (Optional)
+### 5. Create Volume (Opsional)
 
-For persistent storage:
+Untuk persistent storage:
 
 ```bash
 fly volumes create data --size 1
@@ -231,36 +231,36 @@ fly volumes create data --size 1
 
 ### 6. Load Initial Data
 
-After successful deployment, load dummy data:
+Setelah deployment berhasil, load data dummy:
 
 ```bash
 fly ssh console -u wagtail -C "./manage.py load_initial_data"
 ```
 
-!!! tip "SSH Troubleshooting"
-    If you get "error connecting to SSH server", the `fly.toml` might not have been read correctly. Delete the app and start over.
+!!! tip "Troubleshooting SSH"
+    Jika mendapat error "error connecting to SSH server", kemungkinan `fly.toml` tidak terbaca dengan benar. Hapus aplikasi dan ulangi dari awal.
 
 ## Post-Deployment
 
-### 1. Access Application
+### 1. Akses Aplikasi
 
-After deployment completes, access your application at the provided URL:
+Setelah deployment selesai, akses aplikasi di URL yang diberikan:
 
 ```
 https://your-app-name.fly.dev
 ```
 
-### 2. Change Admin Password
+### 2. Ganti Password Admin
 
-Login to the admin panel and immediately change the default password:
+Login ke admin panel dan segera ganti password default:
 
-1. Open `https://your-app-name.fly.dev/admin`
-2. Login with default credentials
-3. Change password in user settings
+1. Buka `https://your-app-name.fly.dev/admin`
+2. Login dengan kredensial default
+3. Ganti password di user settings
 
-### 3. Configure Custom Domain (Optional)
+### 3. Konfigurasi Domain Custom (Opsional)
 
-To use your own domain:
+Untuk menggunakan domain sendiri:
 
 ```bash
 # Add custom domain
@@ -270,12 +270,12 @@ fly certs add yourdomain.com
 fly certs show yourdomain.com
 ```
 
-Update your domain's DNS record:
+Update DNS record domain Anda:
 ```
 CNAME yourdomain.com your-app-name.fly.dev
 ```
 
-## Monitoring and Maintenance
+## Monitoring dan Maintenance
 
 ### 1. View Logs
 
@@ -301,7 +301,7 @@ fly scale memory 512
 
 ### 4. Update Application
 
-To update your code:
+Untuk update kode:
 
 ```bash
 fly deploy
@@ -370,7 +370,7 @@ fly ssh console -C "./manage.py collectstatic --noinput"
 
 ### 1. Auto-stop Machines
 
-Configuration already enables auto-stop to save costs:
+Konfigurasi sudah mengaktifkan auto-stop untuk menghemat biaya:
 
 ```toml
 [http_service]
@@ -395,13 +395,13 @@ fly scale memory 256
 fly scale vm shared-cpu-1x
 ```
 
-## Next Steps
+## Langkah Selanjutnya
 
-After successfully deploying to Fly.io, you can:
+Setelah berhasil deploy ke Fly.io, Anda dapat:
 
-1. Set up monitoring and alerting
-2. Configure automatic backups
-3. Implement CI/CD pipeline
-4. Optimize performance
+1. Setup monitoring dan alerting
+2. Konfigurasi backup otomatis
+3. Implementasi CI/CD pipeline
+4. Optimasi performance
 
-For deployment to other platforms, see [Divio Cloud](divio.md) or [Other Servers](other-servers.md) guides.
+Untuk deployment ke platform lain, lihat panduan [Divio Cloud](divio.md) atau [Server Lainnya](other-servers.md).

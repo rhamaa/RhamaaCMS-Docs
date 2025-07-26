@@ -1,31 +1,31 @@
-# Initial Setup
+# Konfigurasi Awal
 
-After installation is complete, follow these steps to configure your RhamaaCMS project.
+Setelah instalasi selesai, ikuti langkah-langkah berikut untuk mengkonfigurasi proyek RhamaaCMS Anda.
 
-## Load Dummy Data
+## Load Data Dummy
 
-RhamaaCMS provides dummy data to help you get started quickly:
+RhamaaCMS menyediakan data dummy untuk membantu Anda memulai dengan cepat:
 
 ```bash
 make load-data
 ```
 
-!!! info "What gets loaded?"
-    This command will load:
-    - Sample pages with various content types
-    - Default admin user
-    - Basic site settings
-    - Sample media files
+!!! info "Apa yang dimuat?"
+    Perintah ini akan memuat:
+    - Halaman contoh dengan berbagai tipe konten
+    - User admin default
+    - Pengaturan situs dasar
+    - Media files contoh
 
-## Database Configuration
+## Konfigurasi Database
 
-### Default Database (SQLite)
+### Database Default (SQLite)
 
-By default, RhamaaCMS uses SQLite which requires no additional configuration. The database will be created automatically when you first run migrations.
+Secara default, RhamaaCMS menggunakan SQLite yang tidak memerlukan konfigurasi tambahan. Database akan dibuat otomatis saat pertama kali menjalankan migrasi.
 
-### Using PostgreSQL (Optional)
+### Menggunakan PostgreSQL (Opsional)
 
-For production, PostgreSQL is recommended:
+Untuk production, disarankan menggunakan PostgreSQL:
 
 1. **Install PostgreSQL adapter:**
    ```bash
@@ -46,14 +46,14 @@ For production, PostgreSQL is recommended:
    }
    ```
 
-3. **Run migrations:**
+3. **Jalankan migrasi:**
    ```bash
    python manage.py migrate
    ```
 
-## Environment Variables Configuration
+## Konfigurasi Environment Variables
 
-Create a `.env` file in the project root to store sensitive configuration:
+Buat file `.env` di root proyek untuk menyimpan konfigurasi sensitif:
 
 ```bash
 # .env
@@ -61,10 +61,10 @@ SECRET_KEY=your-secret-key-here
 DEBUG=True
 ALLOWED_HOSTS=localhost,127.0.0.1
 
-# Database (if using PostgreSQL)
+# Database (jika menggunakan PostgreSQL)
 DATABASE_URL=postgres://user:password@localhost:5432/dbname
 
-# Email settings (optional)
+# Email settings (opsional)
 EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
@@ -73,27 +73,27 @@ EMAIL_HOST_USER=your-email@gmail.com
 EMAIL_HOST_PASSWORD=your-app-password
 ```
 
-!!! warning "Security"
-    Never commit the `.env` file to version control. Add it to `.gitignore`.
+!!! warning "Keamanan"
+    Jangan pernah commit file `.env` ke version control. Tambahkan ke `.gitignore`.
 
-## Create Superuser
+## Membuat Superuser
 
-If you're not using dummy data, create a superuser to access the admin:
+Jika Anda tidak menggunakan data dummy, buat superuser untuk mengakses admin:
 
 ```bash
 python manage.py createsuperuser
 ```
 
-Follow the prompts to enter:
+Ikuti prompt untuk memasukkan:
 - Username
 - Email address
 - Password
 
-## Media Files Configuration
+## Konfigurasi Media Files
 
 ### Development
 
-For development, media files are stored locally. Ensure the `media/` folder is writable:
+Untuk development, media files disimpan secara lokal. Pastikan folder `media/` dapat ditulis:
 
 ```bash
 mkdir -p media
@@ -102,7 +102,7 @@ chmod 755 media
 
 ### Production
 
-For production, cloud storage like AWS S3 is recommended:
+Untuk production, disarankan menggunakan cloud storage seperti AWS S3:
 
 1. **Install django-storages:**
    ```bash
@@ -119,13 +119,13 @@ For production, cloud storage like AWS S3 is recommended:
    AWS_S3_REGION_NAME = 'your-region'
    ```
 
-## Cache Configuration (Optional)
+## Konfigurasi Cache (Opsional)
 
-For better performance, enable caching:
+Untuk performa yang lebih baik, aktifkan caching:
 
 ### Redis Cache
 
-1. **Install Redis and python client:**
+1. **Install Redis dan python client:**
    ```bash
    # Ubuntu/Debian
    sudo apt-get install redis-server
@@ -142,14 +142,14 @@ For better performance, enable caching:
    }
    ```
 
-## Configuration Verification
+## Verifikasi Konfigurasi
 
-Run a check to ensure all configurations are correct:
+Jalankan check untuk memastikan semua konfigurasi benar:
 
 ```bash
 python manage.py check --deploy
 ```
 
-## Next Steps
+## Langkah Selanjutnya
 
-After configuration is complete, you're ready to [run the server](running-server.md) and start developing your site.
+Setelah konfigurasi selesai, Anda siap untuk [menjalankan server](running-server.md) dan mulai mengembangkan situs Anda.

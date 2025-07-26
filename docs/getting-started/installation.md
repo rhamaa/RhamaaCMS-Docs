@@ -1,19 +1,19 @@
-# Instalasi RhamaaCMS
+# Installing RhamaaCMS
 
-Panduan lengkap untuk menginstall dan menyiapkan RhamaaCMS di sistem Anda.
+Complete guide to install and set up RhamaaCMS on your system.
 
-## Persyaratan Sistem
+## System Requirements
 
-Sebelum memulai, pastikan sistem Anda memenuhi persyaratan berikut:
+Before starting, ensure your system meets the following requirements:
 
 ### Python Version
 
-Anda memerlukan [versi Python yang kompatibel](https://docs.wagtail.org/en/stable/releases/upgrading.html#compatible-django-python-versions) dengan Wagtail:
+You need a [compatible Python version](https://docs.wagtail.org/en/stable/releases/upgrading.html#compatible-django-python-versions) with Wagtail:
 
 === "Linux/macOS"
     ```bash
     python --version
-    # atau
+    # or
     python3 --version
     ```
 
@@ -22,14 +22,14 @@ Anda memerlukan [versi Python yang kompatibel](https://docs.wagtail.org/en/stabl
     py --version
     ```
 
-!!! tip "Versi yang Direkomendasikan"
-    Gunakan Python 3.8 atau lebih baru untuk kompatibilitas terbaik.
+!!! tip "Recommended Version"
+    Use Python 3.8 or newer for best compatibility.
 
-## Langkah Instalasi
+## Installation Steps
 
-### 1. Membuat Virtual Environment
+### 1. Create Virtual Environment
 
-Virtual environment membantu mengisolasi dependencies proyek Anda:
+Virtual environment helps isolate your project dependencies:
 
 === "Linux/macOS"
     ```bash
@@ -43,10 +43,10 @@ Virtual environment membantu mengisolasi dependencies proyek Anda:
     myproject\env\Scripts\activate
     ```
 
-!!! warning "Penting"
-    Pastikan virtual environment aktif sebelum melanjutkan. Anda akan melihat `(env)` di awal prompt terminal.
+!!! warning "Important"
+    Make sure the virtual environment is active before proceeding. You should see `(env)` at the beginning of your terminal prompt.
 
-### 2. Navigasi ke Direktori Proyek
+### 2. Navigate to Project Directory
 
 ```bash
 cd myproject
@@ -58,53 +58,53 @@ cd myproject
 pip install wagtail
 ```
 
-### 4. Inisialisasi Proyek dengan Template RhamaaCMS
+### 4. Initialize Project with RhamaaCMS Template
 
 ```bash
 wagtail start --template=https://github.com/rhamaa/RhamaaCMS/archive/refs/heads/main.zip myproject .
 ```
 
 !!! info "Template URL"
-    Template diunduh langsung dari GitHub repository RhamaaCMS. Pastikan koneksi internet stabil.
+    The template is downloaded directly from the RhamaaCMS GitHub repository. Ensure you have a stable internet connection.
 
-### 5. Install Dependencies Proyek
+### 5. Install Project Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Verifikasi Instalasi
+## Installation Verification
 
-Untuk memastikan instalasi berhasil, jalankan perintah berikut:
+To ensure the installation was successful, run the following command:
 
 ```bash
 python manage.py check
 ```
 
-Jika tidak ada error, instalasi Anda berhasil!
+If there are no errors, your installation is successful!
 
 ## Troubleshooting
 
-### Error: Python tidak ditemukan
+### Error: Python not found
 
-**Solusi:**
-- Pastikan Python terinstall dengan benar
-- Tambahkan Python ke PATH sistem
-- Gunakan `python3` instead of `python` di Linux/macOS
+**Solution:**
+- Ensure Python is installed correctly
+- Add Python to system PATH
+- Use `python3` instead of `python` on Linux/macOS
 
-### Error: pip tidak ditemukan
+### Error: pip not found
 
-**Solusi:**
+**Solution:**
 ```bash
 python -m ensurepip --upgrade
 ```
 
 ### Error: Permission denied
 
-**Solusi:**
-- Gunakan virtual environment (direkomendasikan)
-- Atau gunakan `--user` flag: `pip install --user wagtail`
+**Solution:**
+- Use virtual environment (recommended)
+- Or use `--user` flag: `pip install --user wagtail`
 
-## Langkah Selanjutnya
+## Next Steps
 
-Setelah instalasi selesai, lanjutkan ke [Konfigurasi Awal](initial-setup.md) untuk menyiapkan proyek Anda.
+After installation is complete, continue to [Initial Setup](initial-setup.md) to configure your project.
