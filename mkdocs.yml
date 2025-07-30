@@ -37,6 +37,11 @@ nav:
     - Running Server: getting-started/running-server.md
   - User Guide:
     - Project Structure: guide/project-structure.md
+    - Design System: guide/design-system.md
+    - Implementation Summary: guide/implementation-summary.md
+    - Theme Customization: guide/theme-customization.md
+    - Component Development: guide/component-development.md
+    - JavaScript Development: guide/javascript-development.md
     - Pages and Blocks: guide/pages-blocks.md
     - Content Management: guide/content-management.md
     - Template Customization: guide/template-customization.md
@@ -51,58 +56,7 @@ nav:
   - FAQ: faq.md
 
 plugins:
-  - search:
-      lang: 
-        - en
-        - id
-  - i18n:
-      docs_structure: suffix
-      fallback_to_default: true
-      reconfigure_material: true
-      reconfigure_search: true
-      languages:
-        - locale: en
-          default: true
-          name: English
-          build: true
-          nav_translations:
-            Home: Home
-            Getting Started: Getting Started
-            Installation: Installation
-            Initial Setup: Initial Setup
-            Running Server: Running Server
-            User Guide: User Guide
-            Project Structure: Project Structure
-            Pages and Blocks: Pages and Blocks
-            Content Management: Content Management
-            Template Customization: Template Customization
-            Deployment: Deployment
-            Development: Development
-            Contributing: Contributing
-            Template Structure: Template Structure
-            Testing: Testing
-            FAQ: FAQ
-        - locale: id
-          name: Bahasa Indonesia
-          build: true
-          nav_translations:
-            Home: Beranda
-            Getting Started: Memulai
-            Installation: Instalasi
-            Initial Setup: Konfigurasi Awal
-            Running Server: Menjalankan Server
-            User Guide: Panduan Penggunaan
-            Project Structure: Struktur Proyek
-            Pages and Blocks: Halaman dan Blok
-            Content Management: Mengelola Konten
-            Template Customization: Kustomisasi Template
-            Deployment: Deployment
-            Development: Pengembangan
-            Contributing: Kontribusi
-            Template Structure: Struktur Template
-            Testing: Testing
-            FAQ: FAQ
-  - mkdocstrings
+  - search
 
 markdown_extensions:
   - admonition

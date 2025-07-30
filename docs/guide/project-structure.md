@@ -173,36 +173,60 @@ home/templates/home/
     └── hero_section.html
 ```
 
-## Static Files
+## Static Files & Design System
 
-### Static Files Structure
+### RHAMAA Global Design System Structure
 
 ```
-static/
-├── css/
-│   ├── main.css           # Main stylesheet
-│   └── components/        # Component styles
-├── js/
-│   ├── main.js           # Main JavaScript
-│   └── components/       # Component scripts
-├── images/
-│   ├── logo.png
-│   └── icons/
-└── fonts/
+DevApps/
+├── node/                           # Build tools & configuration
+│   ├── tailwind.config.js         # Tailwind configuration
+│   ├── postcss.config.js          # PostCSS configuration
+│   ├── esbuild.js                 # Build system
+│   └── package.json               # Dependencies
+├── static_src/                     # Source files
+│   ├── sass/
+│   │   ├── main.scss              # Main SCSS entry point
+│   │   ├── _variables.scss        # CSS custom properties
+│   │   ├── _components.scss       # Component styles
+│   │   ├── _utilities.scss        # Utility classes
+│   │   └── _themes.scss           # Theme variations
+│   ├── javascript/
+│   │   ├── main.js                # Main JavaScript entry
+│   │   └── components/            # Component JavaScript
+│   ├── fonts/                     # Font files
+│   └── images/                    # Image assets
+└── static_compiled/                # Build output
+    ├── css/main.css               # Compiled CSS
+    ├── js/main.js                 # Compiled JavaScript
+    ├── fonts/                     # Copied fonts
+    └── images/                    # Copied images
 ```
 
-### CSS Architecture
+### Design System Architecture
 
-RhamaaCMS uses a modular approach for CSS:
+RhamaaCMS uses the RHAMAA Global Design System built with:
 
-```css
-/* static/css/main.css */
-@import 'base/reset.css';
-@import 'base/typography.css';
-@import 'components/header.css';
-@import 'components/footer.css';
-@import 'pages/home.css';
+- **Tailwind CSS** - Utility-first CSS framework
+- **Preline UI** - Interactive components
+- **SCSS** - Advanced CSS preprocessing
+- **CSS Custom Properties** - Theme-aware variables with `--g` prefix
+- **esbuild** - Fast build system for CSS and JavaScript
+
+### Build Commands
+
+```bash
+# Development with watch mode
+npm run watch
+
+# Production build
+npm run build:prod
+
+# Development with Django server
+npm run start
 ```
+
+For detailed information, see the [Design System Guide](design-system.md).
 
 ## Media Files
 
@@ -291,4 +315,10 @@ django-extensions>=3.2
 
 ## Next Steps
 
-After understanding the project structure, continue to [Pages and Blocks](pages-blocks.md) to learn how to create content.
+After understanding the project structure:
+
+- **[Design System Guide](design-system.md)** - Learn about the RHAMAA Global Design System
+- **[Theme Customization](theme-customization.md)** - Customize themes and styling
+- **[Component Development](component-development.md)** - Create reusable UI components
+- **[JavaScript Development](javascript-development.md)** - Add interactive functionality
+- **[Pages and Blocks](pages-blocks.md)** - Create content structures

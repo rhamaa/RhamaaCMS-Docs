@@ -4,12 +4,15 @@ Welcome to the RhamaaCMS documentation! This project template is designed for cr
 
 ## What is RhamaaCMS?
 
-RhamaaCMS is a Wagtail template that comes with:
+RhamaaCMS is a modern Wagtail template that comes with:
 
 - ✨ **Pre-defined pages** - Ready-to-use page structures
 - 🧱 **Content blocks** - Reusable components
 - ⚡ **Complete functionality** - Essential features already integrated
 - 📦 **Data fixtures** - Sample data to get started quickly
+- 🎨 **RHAMAA Global Design System** - Modern styling with Tailwind CSS and Preline UI
+- 🌙 **Theme Support** - Light/dark mode with custom theme capabilities
+- 📱 **Responsive Design** - Mobile-first approach with modern build tools
 
 ## Quick Start
 
@@ -53,6 +56,10 @@ After the server is running, open `localhost:8000` to view the site and `localho
 
 - **[Getting Started](getting-started/installation.md)** - Complete installation guide
 - **[User Guide](guide/project-structure.md)** - How to use RhamaaCMS
+- **[Design System](guide/design-system.md)** - RHAMAA Global Design System overview
+- **[Theme Customization](guide/theme-customization.md)** - Create and customize themes
+- **[Component Development](guide/component-development.md)** - Build reusable UI components
+- **[JavaScript Development](guide/javascript-development.md)** - Modern JavaScript with Preline UI
 - **[Deployment](deployment/flyio.md)** - Deploy to various platforms
 - **[Development](development/contributing.md)** - Contributing and development
 
